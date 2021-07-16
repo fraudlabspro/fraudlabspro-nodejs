@@ -9,34 +9,48 @@
 // params = {
 	// ip: '8.8.8.8'
 // };
-// flp.validate(params, flpResults);
+// flp.validate(params, (err, data) => {
+	// if (!err) {
+		// console.log(data);
+	// }
+// });
 
 // params = {
 	// id: '20210716AZ1ZIC',
 	// action: 'REJECT',
 // };
-// flp.feedback(params, flpResults);
+// flp.feedback(params, (err, data) => {
+	// if (!err) {
+		// console.log(data);
+	// }
+// });
 
 // params = {
 	// id: '20210716AZ1ZIC',
 	// id_type: 'fraudlabspro_id',
 // };
-// flp.getTransaction(params, flpResults);
+// flp.getTransaction(params, (err, data) => {
+	// if (!err) {
+		// console.log(data);
+	// }
+// });
 
 // params = {
 	// tel: '+1234567890',
 	// mesg: 'Hello, your OTP is <otp>.',
 // };
-// sms.sendSMS(params, flpResults);
+// sms.sendSMS(params, (err, data) => {
+	// if (!err) {
+		// console.log(data);
+	// }
+// });
 
 // params = {
 	// tran_id: 'fG8Ee2w88DBD3HjzBz0',
 	// otp: '649114',
 // };
-// sms.verifyOTP(params, flpResults);
-
-function flpResults(err, res, data) {
-	if (!err && res.statusCode == 200) {
-		console.log(data);
-	}
-}
+// sms.verifyOTP(params, (err, data) => {
+	// if (!err) {
+		// console.log(data);
+	// }
+// });

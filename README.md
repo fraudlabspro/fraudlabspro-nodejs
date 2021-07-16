@@ -94,13 +94,11 @@ params = {
 	ship_zip_code: '33602',
 	ship_country: 'US',
 };
-flp.validate(params, flpResults);
-
-function flpResults(err, res, data) {
-	if (!err && res.statusCode == 200) {
+flp.validate(params, (err, data) => {
+	if (!err) {
 		console.log(data);
 	}
-}
+});
 ```
 
 
@@ -123,13 +121,11 @@ params = {
 	id: '20170906MXFHSTRF',
 	id_type: 'fraudlabspro_id',
 };
-flp.getTransaction(params, flpResults);
-
-function flpResults(err, res, data) {
-	if (!err && res.statusCode == 200) {
+flp.getTransaction(params, (err, data) => {
+	if (!err) {
 		console.log(data);
 	}
-}
+});
 ```
 
 
@@ -154,13 +150,11 @@ params = {
 	action: 'APPROVE',
 	note: 'This customer made a valid purchase before.',
 };
-flp.feedback(params, flpResults);
-
-function flpResults(err, res, data) {
-	if (!err && res.statusCode == 200) {
+flp.feedback(params, (err, data) => {
+	if (!err) {
 		console.log(data);
 	}
-}
+});
 ```
 
 
@@ -192,13 +186,11 @@ params = {
 	otp_timeout: 3600,
 	country_code: 'US',
 };
-sms.sendSMS(params, flpResults);
-
-function flpResults(err, res, data) {
-	if (!err && res.statusCode == 200) {
+sms.sendSMS(params, (err, data) => {
+	if (!err) {
 		console.log(data);
 	}
-}
+});
 ```
 
 
@@ -221,11 +213,9 @@ params = {
 	tran_id: 'UNIQUE_TRANS_ID',
 	otp: 'OTP_RECEIVED',
 };
-sms.verifyOTP(params, flpResults);
-
-function flpResults(err, res, data) {
-	if (!err && res.statusCode == 200) {
+sms.verifyOTP(params, (err, data) => {
+	if (!err) {
 		console.log(data);
 	}
-}
+});
 ```

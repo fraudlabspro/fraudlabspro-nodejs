@@ -1,6 +1,6 @@
 var https = require('https');
 var crypto = require('crypto');
-var VERSION = '2.0.0';
+var VERSION = '2.1.0';
 var SOURCE = 'FraudLabsPro Node.js SDK';
 var FORMAT = 'json';
 
@@ -136,7 +136,7 @@ class FraudValidation {
         let req = https.request(options, function (res) {
             res.on('data', (chunk) => (d = d + chunk));
             res.on('end', function () {
-                callback(null, res, JSON.parse(d));
+                callback(null, JSON.parse(d));
             });
         });
 
@@ -184,7 +184,7 @@ class FraudValidation {
         let req = https.request(options, function (res) {
             res.on('data', (chunk) => (d = d + chunk));
             res.on('end', function () {
-                callback(null, res, JSON.parse(d));
+                callback(null, JSON.parse(d));
             });
         });
 
@@ -220,7 +220,7 @@ class FraudValidation {
         let req = https.get(urlStr, function (res) {
             res.on('data', (chunk) => (d = d + chunk));
             res.on('end', function () {
-                callback(null, res, JSON.parse(d));
+                callback(null, JSON.parse(d));
             });
         });
 
@@ -275,7 +275,7 @@ class SMSVerification {
         let req = https.request(options, function (res) {
             res.on('data', (chunk) => (d = d + chunk));
             res.on('end', function () {
-                callback(null, res, JSON.parse(d));
+                callback(null, JSON.parse(d));
             });
         });
 
@@ -322,7 +322,7 @@ class SMSVerification {
         let req = https.request(options, function (res) {
             res.on('data', (chunk) => (d = d + chunk));
             res.on('end', function () {
-                callback(null, res, JSON.parse(d));
+                callback(null, JSON.parse(d));
             });
         });
 
