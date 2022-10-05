@@ -81,45 +81,45 @@ var flp = new FraudValidation('YOUR API KEY');
 params = {
 	ip: '146.112.62.105',
 	billing: {
-        last_name: 'Henderson',
-        first_name: 'Hector',
-        address: '1766 Powder House Road',
-        city: 'West Palm Beach',
-        state: 'FL',
-        zip_code: '33401',
-        country: 'US',
-        phone: '561-628-8674',
-        email: 'hh5566@gmail.com',
-    },
-    shipping: {
-        last_name: 'John',
-        first_name: 'Doe',
-        address: '4469 Chestnut Street',
-        city: 'Tampa',
-        state: 'FL',
-        zip_code: '33602',
-        country: 'US',
-    },
-    order: {
-        order_id: '67398',
-        currency: 'USD',
-        amount: '79.89',
-        quantity: 1,
-        order_memo: 'Online shop',
-        department: 'Online Store',
-        payment_gateway: 'creditcard',
-        payment_mode: 'creditcard',
-        bin_no: '455655',
-        avs_result: 'Y',
-        cvv_result: 'M',
-    },
-    items: [{
-        sku: '10001',
-        quantity: 1,
-        type: 'physical'
+            last_name: 'Henderson',
+            first_name: 'Hector',
+            address: '1766 Powder House Road',
+            city: 'West Palm Beach',
+            state: 'FL',
+            zip_code: '33401',
+            country: 'US',
+            phone: '561-628-8674',
+            email: 'hh5566@gmail.com',
+        },
+        shipping: {
+            last_name: 'John',
+            first_name: 'Doe',
+            address: '4469 Chestnut Street',
+            city: 'Tampa',
+            state: 'FL',
+            zip_code: '33602',
+            country: 'US',
+        },
+        order: {
+            order_id: '67398',
+            currency: 'USD',
+            amount: '79.89',
+            quantity: 1,
+            order_memo: 'Online shop',
+            department: 'Online Store',
+            payment_gateway: 'stripe',
+            payment_mode: 'creditcard',
+            bin_no: '455655',
+            avs_result: 'Y',
+            cvv_result: 'M',
+        },
+        items: [{
+            sku: '10001',
+            quantity: 1,
+            type: 'physical'
 	}],
-    username: 'hh5566',
-    flp_checksum: ''
+        username: 'hh5566',
+        flp_checksum: ''
 };
 flp.validate(params, (err, data) => {
 	if (!err) {
