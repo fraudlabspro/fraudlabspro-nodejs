@@ -36,34 +36,41 @@ Usage Example
 
 #### Object Properties
 
-| Property Name                     | Property Type | Description                                                  |
-| --------------------------------- | ------------- | ------------------------------------------------------------ |
-| ip                                | string        | (required) IP address of online transaction. It supports both IPv4 and IPv6 address format. |
-| first_name   | string        | (optional) User's first name.                                           |
-| last_name    | string        | (optional) User's last name.                                            |
-| username    | string        | (optional) User's username.                                             |
-| email       | string        | (optional) User's email address.                                        |
-| user_phone       | string        | (optional) User's phone number.                                         |
-| bill_addr     | string        | (optional) Street address of billing address.                           |
-| bill_city        | string        | (optional) City of billing address.                                     |
-| bill_state       | string        | (optional) State of billing address. It supports state codes, e.g. NY (New York), for state or province of United States or Canada. Please refer to [State & Province Codes](https://www.fraudlabspro.com/developer/reference/state-and-province-codes) for complete list. |
-| bill_zip_code    | string        | (optional) Postal or ZIP code of billing address.                       |
-| bill_country     | string        | (optional) Country of billing address. It requires the input of ISO-3166 alpha-2 country code, e.g. US for United States. Please refer to [Country Codes](https://www.fraudlabspro.com/developer/reference/country-codes) for complete list. |
-| user_order_id       | string        | (optiopnal) Merchant identifier to uniquely identify a transaction. It supports maximum of 15 characters user order id input. |
-| user_order_memo          | string        | (optional) Merchant description of an order transaction. It supports maximum of 200 characters. |
-| amount        | float         | (optional) Amount of the transaction.                                   |
-| quantity      | integer       | (optional) Total quantity of the transaction.                           |
-| currency      | string        | (optional) Currency code used in the transaction. It requires the input of ISO-4217 (3 characters) currency code, e.g. USD for US Dollar. Please refer to [Currency Codes](https://www.fraudlabspro.com/developer/reference/currency-codes) for complete list. |
-| department    | string        | (optional) Merchant identifier to uniquely identify a product or service department. |
-| payment_mode | string        | (optional) Payment mode of transaction. Valid values: creditcard, affirm, paypal, googlecheckout, bitcoin, cod, moneyorder, wired, bankdeposit, elviauthorized, paymitco, cybersource, sezzle, viabill, amazonpay, pmnts_gateway, giftcard, others.   |
-| number         | string        | (optional) Billing credit card number or BIN number.                    |
-| avs_result            | string        | (optional) The single character AVS result returned by the credit card processor. Please refer to [AVS & CVV2 Response Codes](https://www.fraudlabspro.com/developer/reference/avs-and-cvv2-response-codes) for details. |
-| cvv_result            | string        | (optional) The single character CVV2 result returned by the credit card processor. Please refer to [AVS & CVV2 Response Codes](https://www.fraudlabspro.com/developer/reference/avs-and-cvv2-response-codes) for details. |
-| ship_addr    | string        | (optional) Street address of shipping address.                          |
-| ship_city       | string        | (optional) City of shipping address.                                    |
-| ship_state      | string        | (optional) State of shipping address. It supports state codes, e.g. NY - New York, for state or province of United States or Canada. Please refer to [State & Province Codes](https://www.fraudlabspro.com/developer/reference/state-and-province-codes) for complete list. |
-| ship_zip_code   | string        | (optional) Postal or ZIP code of shipping address.                      |
-| ship_country    | string        | (optional) Country of shipping address. It requires the input of ISO-3166 alpha-2 country code, e.g. US for United States. Please refer to [Country Codes](https://www.fraudlabspro.com/developer/reference/country-codes) for complete list. |
+| Property Name          | Property Type | Description                                                   |
+| -----------------------| ------------- | ------------------------------------------------------------- |
+| ip                     | string        | (required) IP address of online transaction. It supports both IPv4 and IPv6 address format. |
+| billing->first_name    | string        | (optional) User's first name.                                 |
+| billing->last_name     | string        | (optional) User's last name.                                  |
+| billing->address       | string        | (optional) Street address of billing address.                 |
+| billing->city          | string        | (optional) City of billing address.                           |
+| billing->state         | string        | (optional) State of billing address. It supports state codes, e.g. NY (New York), for state or province of United States or Canada. Please refer to [State & Province Codes](https://www.fraudlabspro.com/developer/reference/state-and-province-codes) for complete list. |
+| billing->zip_code      | string        | (optional) Postal or ZIP code of billing address.             |
+| billing->country       | string        | (optional) Country of billing address. It requires the input of ISO-3166 alpha-2 country code, e.g. US for United States. Please refer to [Country Codes](https://www.fraudlabspro.com/developer/reference/country-codes) for complete list. |
+| billing->phone         | string        | (optional) User's phone number.                               |
+| billing->email         | string        | (optional) User's email address.                              |
+| shipping->first_name   | string        | (optional) Shipping user's first name.                        |
+| shipping->last_name    | string        | (optional) Shipping user's last name.                         |
+| shipping->address      | string        | (optional) Street address of shipping address.                |
+| shipping->city         | string        | (optional) City of shipping address.                          |
+| shipping->state        | string        | (optional) State of shipping address. It supports state codes, e.g. NY - New York, for state or province of United States or Canada. Please refer to [State & Province Codes](https://www.fraudlabspro.com/developer/reference/state-and-province-codes) for complete list. |
+| shipping->zip_code     | string        | (optional) Postal or ZIP code of shipping address.            |
+| shipping->country      | string        | (optional) Country of shipping address. It requires the input of ISO-3166 alpha-2 country code, e.g. US for United States. Please refer to [Country Codes](https://www.fraudlabspro.com/developer/reference/country-codes) for complete list. |
+| order->order_id        | string        | (optiopnal) Merchant identifier to uniquely identify a transaction. It supports maximum of 15 characters user order id input. |
+| order->currency        | string        | (optional) Currency code used in the transaction. It requires the input of ISO-4217 (3 characters) currency code, e.g. USD for US Dollar. Please refer to [Currency Codes](https://www.fraudlabspro.com/developer/reference/currency-codes) for complete list. |
+| order->amount          | float         | (optional) Amount of the transaction.                         |
+| order->quantity        | integer       | (optional) Total quantity of the transaction.                 |
+| order->order_memo      | string        | (optional) Merchant description of an order transaction. It supports maximum of 200 characters. |
+| order->department      | string        | (optional) Merchant identifier to uniquely identify a product or service department. |
+| order->payment_gateway | string        | (optional) The name of payment gateway used to capture the payment. |
+| order->payment_mode    | string        | (optional) Payment mode of transaction. Valid values: creditcard, affirm, paypal, googlecheckout, bitcoin, cod, moneyorder, wired, bankdeposit, elviauthorized, paymitco, cybersource, sezzle, viabill, amazonpay, pmnts_gateway, giftcard, others. |
+| order->bin_no          | string        | (optional) First 6-9 digits of credit card number to identify issuing bank. |
+| order->avs_result      | string        | (optional) The single character AVS result returned by the credit card processor. Please refer to [AVS & CVV2 Response Codes](https://www.fraudlabspro.com/developer/reference/avs-and-cvv2-response-codes) for details. |
+| order->cvv_result      | string        | (optional) The single character CVV2 result returned by the credit card processor. Please refer to [AVS & CVV2 Response Codes](https://www.fraudlabspro.com/developer/reference/avs-and-cvv2-response-codes) for details. |
+| items[]->sku           | string        | (optional) Product SKU of the transaction.                    |
+| items[]->quantity      | integer       | (optional) Product quantity of the transaction.               |
+| items[]->type          | string        | (optional) Product type of the transaction.                   |
+| username               | string        | (optional) User's username.                                   |
+| flp_checksum           | string        | (optional) Checksum for the device validation. Please visit [Agent Javascript](https://www.fraudlabspro.com/developer/javascript) to learn about the use of this parameter. |
 
 
 ```javascript
@@ -73,27 +80,46 @@ var flp = new FraudValidation('YOUR API KEY');
 
 params = {
 	ip: '146.112.62.105',
-	user_order_id: '67398',
-	user_order_memo: 'Online shop',
-	currency: 'USD',
-	amount: '79.89',
-	quantity: 1,
-	number: '4556553172971283',
-	payment_mode: 'creditcard',
-	first_name: 'Hector',
-	last_name: 'Henderson',
-	email: 'hh5566@gmail.com',
-	user_phone: '561-628-8674',
-	bill_addr: '1766 Powder House Road',
-	bill_city: 'West Palm Beach',
-	bill_state: 'FL',
-	bill_zip_code: '33401',
-	bill_country: 'US',
-	ship_addr: '4469 Chestnut Street',
-	ship_city: 'Tampa',
-	ship_state: 'FL',
-	ship_zip_code: '33602',
-	ship_country: 'US',
+	billing: {
+        last_name: 'Henderson',
+        first_name: 'Hector',
+        address: '1766 Powder House Road',
+        city: 'West Palm Beach',
+        state: 'FL',
+        zip_code: '33401',
+        country: 'US',
+        phone: '561-628-8674',
+        email: 'hh5566@gmail.com',
+    },
+    shipping: {
+        last_name: 'John',
+        first_name: 'Doe',
+        address: '4469 Chestnut Street',
+        city: 'Tampa',
+        state: 'FL',
+        zip_code: '33602',
+        country: 'US',
+    },
+    order: {
+        order_id: '67398',
+        currency: 'USD',
+        amount: '79.89',
+        quantity: 1,
+        order_memo: 'Online shop',
+        department: 'Online Store',
+        payment_gateway: 'creditcard',
+        payment_mode: 'creditcard',
+        bin_no: '455655',
+        avs_result: 'Y',
+        cvv_result: 'M',
+    },
+    items: [{
+        sku: '10001',
+        quantity: 1,
+        type: 'physical'
+	}],
+    username: 'hh5566',
+    flp_checksum: ''
 };
 flp.validate(params, (err, data) => {
 	if (!err) {
@@ -109,8 +135,8 @@ flp.validate(params, (err, data) => {
 
 | Parameter Name | Parameter Type | Description                                                  |
 | -------------- | -------------- | ------------------------------------------------------------ |
-| id            | string         | FraudLabs Pro transaction ID or Order ID.                    |
-| id_type          | string         | ID type. Valid values: fraudlabspro_id, user_order_id |
+| id             | string         | (required) FraudLabs Pro transaction ID or Order ID.         |
+| id_type        | string         | (optional) ID type. Valid values: fraudlabspro_id, user_order_id |
 
 
 ```javascript
@@ -136,9 +162,9 @@ flp.getTransaction(params, (err, data) => {
 
 | Property Name | Property Type | Description                                                  |
 | ------------- | ------------- | ------------------------------------------------------------ |
-| id            | string        | Unique transaction ID generated from **Validate** function.  |
-| action        | string        | Perform APPROVE, REJECT, or REJECT_BLACKLIST action to transaction. |
-| note          | string        | Notes for the feedback request.                              |
+| id            | string        | (required) Unique transaction ID generated from **Validate** function. |
+| action        | string        | (required) Perform APPROVE, REJECT, or REJECT_BLACKLIST action to transaction. |
+| note          | string        | (optional) Notes for the feedback request.                   |
 
 
 ```javascript
@@ -169,11 +195,11 @@ flp.feedback(params, (err, data) => {
 #### Object Properties
 
 | Property Name | Property Type | Description                                                  |
-| ------------- | :-----------: | ------------------------------------------------------------ |
-| tel           |    string     | The recipient mobile phone number in E164 format which is a plus followed by just numbers with no spaces or parentheses. |
-| mesg          |    string     | The message template for the SMS. Add <otp> as placeholder for the actual OTP to be generated. Max length is 140 characters. |
-| otp_timeout   |    integer    | Timeout feature for OTP value in seconds. Default is 3600 seconds(1 hour). Max timeout is 86400 seconds(24 hours). |
-| country_code  |    string     | ISO 3166 country code for the recipient mobile phone number. If parameter is supplied, then some basic telephone number validation is done. |
+| ------------- | ------------- | ------------------------------------------------------------ |
+| tel           | string        | (required) The recipient mobile phone number in E164 format which is a plus followed by just numbers with no spaces or parentheses. |
+| mesg          | string        | (required) The message template for the SMS. Add <otp> as placeholder for the actual OTP to be generated. Max length is 140 characters. |
+| otp_timeout   | integer       | (optional) Timeout feature for OTP value in seconds. Default is 3600 seconds(1 hour). Max timeout is 86400 seconds(24 hours). |
+| country_code  | string        | (optional) ISO 3166 country code for the recipient mobile phone number. If parameter is supplied, then some basic telephone number validation is done. |
 
 
 ```javascript
@@ -200,9 +226,9 @@ sms.sendSMS(params, (err, data) => {
 #### Object Properties
 
 | Property Name | Property Type | Description                                                  |
-| ------------- | :-----------: | ------------------------------------------------------------ |
-| tran_id       |    string     | The unique ID that was returned by the Send SMS Verification that triggered the OTP sms. |
-| otp           |    string     | The OTP that was sent to the recipient’s phone. |
+| ------------- | ------------- | ------------------------------------------------------------ |
+| tran_id       | string        | (required) The unique ID that was returned by the Send SMS Verification that triggered the OTP sms. |
+| otp           | string        | (required) The OTP that was sent to the recipient’s phone.   |
 
 
 ```javascript

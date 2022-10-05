@@ -26,87 +26,74 @@ class FraudValidation {
             format: FORMAT,
             source: SOURCE,
             source_version: VERSION,
-            flp_checksum:
-                'flp_checksum' in params ? params['flp_checksum'] : '',
+            ip: 'ip' in params ? params['ip'] : '',
+            username: 'username' in params ? params['username'] : '',
+            flp_checksum: 'flp_checksum' in params ? params['flp_checksum'] : '',
 
             // Billing information
-            ip: 'ip' in params ? params['ip'] : '',
-            first_name: 'first_name' in params ? params['first_name'] : '',
-            last_name: 'last_name' in params ? params['last_name'] : '',
-            username_hash:
-                'username_hash' in params ? params['username_hash'] : '',
-            email: 'email' in params ? params['email'] : '',
-            email_domain:
-                'email_domain' in params ? params['email_domain'] : '',
-            email_hash: 'email_hash' in params ? params['email_hash'] : '',
-            user_phone: 'user_phone' in params ? params['user_phone'] : '',
-            bill_addr: 'bill_addr' in params ? params['bill_addr'] : '',
-            bill_city: 'bill_city' in params ? params['bill_city'] : '',
-            bill_state: 'bill_state' in params ? params['bill_state'] : '',
-            bill_zip_code:
-                'bill_zip_code' in params ? params['bill_zip_code'] : '',
-            bill_country:
-                'bill_country' in params ? params['bill_country'] : '',
-
-            // Order information
-            user_order_id:
-                'user_order_id' in params ? params['user_order_id'] : '',
-            user_order_memo:
-                'user_order_memo' in params ? params['user_order_memo'] : '',
-            amount: 'amount' in params ? params['amount'] : '',
-            quantity: 'quantity' in params ? params['quantity'] : '',
-            currency: 'currency' in params ? params['currency'] : 'USD',
-            department: 'department' in params ? params['department'] : '',
-            payment_mode:
-                'payment_mode' in params ? params['payment_mode'] : '',
-
-            // Credit card information
-            bin_no: 'bin_no' in params ? params['bin_no'] : '',
-            card_hash: 'card_hash' in params ? params['card_hash'] : '',
-            avs_result: 'avs_result' in params ? params['avs_result'] : '',
-            cvv_result: 'cvv_result' in params ? params['cvv_result'] : '',
+            last_name: (typeof(params['billing']['last_name']) !== 'undefined') ? params['billing']['last_name'] : '',
+            first_name: (typeof(params['billing']['first_name']) !== 'undefined') ? params['billing']['first_name'] : '',
+            bill_addr: (typeof(params['billing']['address']) !== 'undefined') ? params['billing']['address'] : '',
+            bill_city: (typeof(params['billing']['city']) !== 'undefined') ? params['billing']['city'] : '',
+            bill_state: (typeof(params['billing']['state']) !== 'undefined') ? params['billing']['state'] : '',
+            bill_country: (typeof(params['billing']['country']) !== 'undefined') ? params['billing']['country'] : '',
+            bill_zip_code: (typeof(params['billing']['zip_code']) !== 'undefined') ? params['billing']['zip_code'] : '',
+            user_phone: (typeof(params['billing']['phone']) !== 'undefined') ? params['billing']['phone'] : '',
+            email: (typeof(params['billing']['email']) !== 'undefined') ? params['billing']['email'] : '',
 
             // Shipping information
-            ship_addr: 'ship_addr' in params ? params['ship_addr'] : '',
-            ship_city: 'ship_city' in params ? params['ship_city'] : '',
-            ship_state: 'ship_state' in params ? params['ship_state'] : '',
-            ship_zip_code:
-                'ship_zip_code' in params ? params['ship_zip_code'] : '',
-            ship_country:
-                'ship_country' in params ? params['ship_country'] : '',
+            ship_last_name: (typeof(params['shipping']['last_name']) !== 'undefined') ? params['shipping']['last_name'] : '',
+            ship_first_name: (typeof(params['shipping']['first_name']) !== 'undefined') ? params['shipping']['first_name'] : '',
+            ship_addr: (typeof(params['shipping']['address']) !== 'undefined') ? params['shipping']['address'] : '',
+            ship_city: (typeof(params['shipping']['city']) !== 'undefined') ? params['shipping']['city'] : '',
+            ship_state: (typeof(params['shipping']['state']) !== 'undefined') ? params['shipping']['state'] : '',
+            ship_country: (typeof(params['shipping']['country']) !== 'undefined') ? params['shipping']['country'] : '',
+            ship_zip_code: (typeof(params['shipping']['zip_code']) !== 'undefined') ? params['shipping']['zip_code'] : '',
+
+            // Order information
+            user_order_id: (typeof(params['order']['order_id']) !== 'undefined') ? params['order']['order_id'] : '',
+            currency: (typeof(params['order']['currency']) !== 'undefined') ? params['order']['currency'] : 'USD',
+            amount: (typeof(params['order']['amount']) !== 'undefined') ? params['order']['amount'] : 0,
+            quantity: (typeof(params['order']['quantity']) !== 'undefined') ? params['order']['quantity'] : 0,
+            user_order_memo: (typeof(params['order']['order_memo']) !== 'undefined') ? params['order']['order_memo'] : '',
+            department: (typeof(params['order']['department']) !== 'undefined') ? params['order']['department'] : '',
+            payment_gateway: (typeof(params['order']['payment_gateway']) !== 'undefined') ? params['order']['payment_gateway'] : '',
+            payment_mode: (typeof(params['order']['payment_mode']) !== 'undefined') ? params['order']['payment_mode'] : '',
+            bin_no: (typeof(params['order']['bin_no']) !== 'undefined') ? params['order']['bin_no'] : '',
+            avs_result: (typeof(params['order']['avs_result']) !== 'undefined') ? params['order']['avs_result'] : '',
+            cvv_result: (typeof(params['order']['cvv_result']) !== 'undefined') ? params['order']['cvv_result'] : '',
         };
 
+        // Item information
+        if (typeof(params['items']) !== 'undefined') {
+            data['items'] = '';
+            if (params['items'].length > 0) {
+                params['items'].forEach(function (item) {
+                    if (typeof(item['sku']) !== 'undefined') {
+                        data['items'] += item['sku'] + ':' + item['quantity'] + ':' + item['type'] + ','
+                    }
+                });
+                if (data['items'].slice(-1) == ',') {
+                    data['items'] = data['items'].slice(0, -1);
+                }
+            }
+        }
+
         // here we do additional processing/filtering if need be
-        if (
-            data['username_hash'] == '' &&
-            'username' in params &&
-            params['username'] != ''
-        ) {
-            data['username_hash'] = doHash(params['username']);
+        if (data['email'] !== '') {
+            if (data['email'].indexOf('@') != -1) {
+                data['email_hash'] = doHash(data['email']);
+                data['email_domain'] = data['email'].substring(data['email'].indexOf('@') + 1);
+            }
         }
-        if (
-            data['email_domain'] == '' &&
-            'email' in params &&
-            params['email'].indexOf('@') != -1
-        ) {
-            data['email_domain'] = params['email'].substring(
-                params['email'].indexOf('@') + 1
-            );
+
+        if (data['bin_no'] !== '') {
+            data['bin_no'] = data['bin_no'].substring(0, 9);
+            data['card_hash'] = doHash(data['bin_no']);
         }
-        if (
-            data['email_hash'] == '' &&
-            'email' in params &&
-            params['email'].indexOf('@') != -1
-        ) {
-            data['email_hash'] = doHash(params['email']);
-        }
-        if (data['card_hash'] == '' && 'number' in params) {
-            data['card_hash'] = doHash(params['number']);
-        }
-        if (data['bin_no'] == '' && 'number' in params) {
-            data['bin_no'] = params['number'].substring(0, 9);
-        }
+
         data['user_phone'] = data['user_phone'].replace(/\D/g, '');
+
         if (data['amount'] != '' && !isNaN(data['amount'])) {
             data['amount'] = parseFloat(data['amount']).toFixed(2);
         }
