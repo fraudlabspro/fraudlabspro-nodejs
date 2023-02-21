@@ -1,6 +1,6 @@
 {
 	"name": "fraudlabspro-nodejs",
-	"version": "2.1.0",
+	"version": "2.2.0",
 	"description": "FraudLabs Pro Node.js module enables users to easily implement fraud detection feature using the FraudLabs Pro API.",
 	"keywords": ["fraud prevention", "fraud detection", "fraud checker", "fraudlabs pro", "fraudlabspro", "fraud protection"],
 	"homepage": "https://github.com/fraudlabspro/fraudlabspro-nodejs",
