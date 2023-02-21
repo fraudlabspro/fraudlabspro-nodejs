@@ -1,6 +1,6 @@
 var https = require('https');
 var crypto = require('crypto');
-var VERSION = '2.1.0';
+var VERSION = '2.2.0';
 var SOURCE = 'sdk-nodejs';
 var FORMAT = 'json';
 
