@@ -1,7 +1,7 @@
 var https = require('https');
 var crypto = require('crypto');
 var VERSION = '2.1.0';
-var SOURCE = 'FraudLabsPro Node.js SDK';
+var SOURCE = 'sdk-nodejs';
 var FORMAT = 'json';
 
 function doHash(myStr) {
