@@ -1,19 +1,30 @@
 {
 	"name": "fraudlabspro-nodejs",
-	"version": "2.2.0",
+	"version": "3.0.0",
 	"description": "FraudLabs Pro Node.js module enables users to easily implement fraud detection feature using the FraudLabs Pro API.",
-	"keywords": ["fraud prevention", "fraud detection", "fraud checker", "fraudlabs pro", "fraudlabspro", "fraud protection"],
+	"keywords": [
+		"fraud prevention",
+		"fraud detection",
+		"fraud checker",
+		"fraudlabs pro",
+		"fraudlabspro",
+		"fraud protection"
+	],
 	"homepage": "https://github.com/fraudlabspro/fraudlabspro-nodejs",
 	"author": {
 		"name": "FraudLabsPro.com",
 		"email": "sales@fraudlabspro.com",
 		"url": "https://www.fraudlabspro.com/"
 	},
-	"files": ["src/fraudlabspro.js","src/test.js","./README.md"],
+	"files": [
+		"src/fraudlabspro.js",
+		"src/test.js",
+		"./README.md"
+	],
 	"main": "src/fraudlabspro.js",
-	"license" : "MIT",
+	"license": "MIT",
 	"repository": {
 		"type": "git",
-		"url": "https://github.com/fraudlabspro/fraudlabspro-nodejs.git"
+		"url": "git+https://github.com/fraudlabspro/fraudlabspro-nodejs.git"
 	}
 }
