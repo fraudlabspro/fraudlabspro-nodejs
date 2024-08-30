@@ -125,7 +125,7 @@ Retrieve geolocation information for an IP address.
 | order->currency        | string  | (optional) Currency code used in the transaction. It requires the input of<br/> ISO-4217 (3 characters) currency code, e.g. USD for US Dollar. |
 | order->department      | string  | (optional) Merchant identifier to uniquely identify a product or service department. |
 | order->payment_gateway | string        | (optional) The name of payment gateway used to capture the payment. |
-| order->payment_mode    | string  | (optional) Payment mode of transaction. Valid values: creditcard \| affirm \| paypal \| googlecheckout \| bitcoin \| cod \| moneyorder \| wired \|<br/> bankdeposit \| elviauthorized \| paymitco \| cybersource \| sezzle \| viabill \| amazonpay \| pmnts_gateway \| giftcard \| ewayrapid \| others. |
+| order->payment_mode    | string  | (optional) Payment mode of transaction. Valid values: creditcard \| paypal \| cod \| bankdeposit \| giftcard \| crypto \| wired \| others |
 | items[]->sku           | string        | (optional) Product SKU of the transaction.                    |
 | items[]->quantity      | integer       | (optional) Product quantity of the transaction.               |
 | items[]->type          | string        | (optional) Product type of the transaction.                   |
