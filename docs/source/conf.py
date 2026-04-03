@@ -6,11 +6,11 @@
 # -- Project information
 
 project = 'FraudLabs Pro Node.js'
-copyright = '2024, FraudLabs Pro'
+copyright = '2026, FraudLabs Pro'
 author = 'FraudLabs Pro'
 
-release = '0.1.0'
-version = '0.1.0'
+release = '3.1.0'
+version = '3.1.0'
 
 # -- General configuration
 
@@ -61,4 +61,4 @@ html_favicon = 'images/favicon.ico'
 
 html_title = "FraudLabs Pro Node.js"
 
-# html_baseurl = "https://ip2proxy-php.readthedocs.io/en/latest/"
+# html_baseurl = "https://fraudlabspro-nodejs.readthedocs.io/en/latest/"

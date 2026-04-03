@@ -155,3 +155,25 @@ sms.verifyOTP(params, (err, data) => {
 	}
 });
 ```
+
+### Report Payment Gateway Feedback
+
+You can report payment gateway feedback as below:
+
+```javascript
+const {Payment} = require("fraudlabspro-nodejs");
+
+var pay = new Payment('YOUR API KEY');
+
+params = {
+	email: 'hh5566@gmail.com',
+	status: 'declined',
+	message: 'Call Issuer. Pick Up Card. (2047)',
+	fraudlabspro_id: '20260131-O263CR',
+};
+pay.feedback(params, (err, data) => {
+	if (!err) {
+		console.log(data);
+	}
+});
+```

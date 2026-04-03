@@ -1,10 +1,12 @@
-// const {FraudValidation, SMSVerification} = require("fraudlabspro-nodejs");
-// const {FraudValidation, SMSVerification} = require("./fraudlabspro.js");
+// const {FraudValidation, SMSVerification, Payment} = require("fraudlabspro-nodejs");
+// const {FraudValidation, SMSVerification, Payment} = require("./fraudlabspro.js");
 // const {FraudValidation} = require("./fraudlabspro.js");
 // const {SMSVerification} = require("./fraudlabspro.js");
+// const {Payment} = require("./fraudlabspro.js");
 
 // var flp = new FraudValidation('YOUR API KEY');
 // var sms = new SMSVerification('YOUR API KEY');
+// var pay = new Payment('YOUR API KEY');
 
 // params = {
 	// ip: '8.8.8.8'
@@ -50,6 +52,18 @@
 	// otp: '649114',
 // };
 // sms.verifyOTP(params, (err, data) => {
+	// if (!err) {
+		// console.log(data);
+	// }
+// });
+
+// params = {
+	// email: 'hh5566@gmail.com',
+	// status: 'declined',
+	// message: 'Call Issuer. Pick Up Card. (2047)',
+	// fraudlabspro_id: '20260131-O263CR',
+// };
+// pay.feedback(params, (err, data) => {
 	// if (!err) {
 		// console.log(data);
 	// }
