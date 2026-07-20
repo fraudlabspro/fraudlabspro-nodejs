@@ -1,6 +1,6 @@
 var https = require("https");
 var crypto = require("crypto");
-var VERSION = "3.1.0";
+var VERSION = "3.2.0";
 var SOURCE = "sdk-nodejs";
 var FORMAT = "json";
 
@@ -162,22 +162,10 @@ class FraudValidation {
       typeof params["order"]["cvv_result"] !== "undefined"
         ? params["order"]["cvv_result"]
         : "";
-
-    // Item information
-    if (typeof params["items"] !== "undefined") {
-      data["items"] = "";
-      if (params["items"].length > 0) {
-        params["items"].forEach(function (item) {
-          if (typeof item["sku"] !== "undefined") {
-            data["items"] +=
-              item["sku"] + ":" + item["quantity"] + ":" + item["type"] + ",";
-          }
-        });
-        if (data["items"].slice(-1) == ",") {
-          data["items"] = data["items"].slice(0, -1);
-        }
-      }
-    }
+    data.items =
+      typeof params["order"]["items"] !== "undefined"
+        ? params["order"]["items"]
+        : "";
 
     // here we do additional processing/filtering if need be
     if (data["email"] !== "") {

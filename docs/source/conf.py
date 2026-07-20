@@ -9,8 +9,8 @@ project = 'FraudLabs Pro Node.js'
 copyright = '2026, FraudLabs Pro'
 author = 'FraudLabs Pro'
 
-release = '3.1.0'
-version = '3.1.0'
+release = '3.2.0'
+version = '3.2.0'
 
 # -- General configuration
 

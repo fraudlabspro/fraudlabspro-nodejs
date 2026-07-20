@@ -126,9 +126,7 @@ Retrieve geolocation information for an IP address.
 | order->department      | string  | (optional) Merchant identifier to uniquely identify a product or service department. |
 | order->payment_gateway | string        | (optional) The name of payment gateway used to capture the payment. |
 | order->payment_mode    | string  | (optional) Payment mode of transaction. Valid values: creditcard \| paypal \| cod \| bankdeposit \| giftcard \| crypto \| wired \| others |
-| items[]->sku           | string        | (optional) Product SKU of the transaction.                    |
-| items[]->quantity      | integer       | (optional) Product quantity of the transaction.               |
-| items[]->type          | string        | (optional) Product type of the transaction.                   |
+| order->items    | string  | (optional) The items purchased in the transaction. This field accepts a JSON array of objects where each object contains sku, quantity, price and the optional fields type, name and purchase_type. For more details, refer to [https://www.fraudlabspro.com/resources/tutorials/fraudlabs-pro-screen-order-api-now-supports-item-level-order-data/](https://www.fraudlabspro.com/resources/tutorials/fraudlabs-pro-screen-order-api-now-supports-item-level-order-data/). |
 | username               | string        | (optional) User's username.                                   |
 | flp_checksum           | string        | (optional) Checksum for the device validation. Please visit [Agent Javascript](https://www.fraudlabspro.com/developer/javascript) to learn about the use of this parameter. |
 
